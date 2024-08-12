@@ -4,7 +4,8 @@ const {con}=require("../DB/connection");
 const keywords=(req,res)=>{
     
     var key=req.query.keys;
-    var sql="select t.*,GROUP_CONCAT(te.technology) from tracker t left join technology te on t.no=te.tracker_id where summury like ? or others like ?;"
+    //var sql="select t.*,te.technology from tracker t left join technology te on t.no=te.tracker_id where summury like ? or others like ?;"
+    var sql="select * from tracker where summury like ? or others like ?;"
     var word='%'+key+'%';
     con.query(sql,[word,word],(err,result)=>{
         

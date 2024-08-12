@@ -8,15 +8,15 @@ const save=(req,res)=>{
             console.log("error occured "+err);
             res.status(500).send("error occured   "+err);
           };
-         console.log(result);
+         //console.log(result);
          
           const trackerId = result.insertId; 
-          console.log("Inserted tracker ID:", trackerId); // Log the insert ID
+          //console.log("Inserted tracker ID:", trackerId); // Log the insert ID
 
-          if (!trackerId) {
-              console.log("Tracker ID is null or undefined");
-              return res.status(500).send("Error: Could not retrieve tracker ID");
-          }
+        //   if (!trackerId) {
+        //       console.log("Tracker ID is null or undefined");
+        //       return res.status(500).send("Error: Could not retrieve tracker ID");
+        //   }
         const insertTechnologySQL = `INSERT INTO technology (tracker_id, technology) VALUES ?`;
         const technologyValues = user.technology.map(tech => [trackerId, tech]);
         con.query(insertTechnologySQL, [technologyValues], (err) => {
